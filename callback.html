@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>QBO Authorization</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 50px auto; padding: 20px; }
+        .code-box { background: #f0f0f0; padding: 15px; border-radius: 5px; word-break: break-all; margin: 10px 0; }
+        h1 { color: #2e7d32; }
+    </style>
+</head>
+<body>
+    <h1>Authorization Successful!</h1>
+    <p>Copy these values back to Claude:</p>
+
+    <p><strong>Authorization Code:</strong></p>
+    <div class="code-box" id="code"></div>
+
+    <p><strong>Realm ID (Company ID):</strong></p>
+    <div class="code-box" id="realmId"></div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        document.getElementById('code').textContent = params.get('code') || 'Not found';
+        document.getElementById('realmId').textContent = params.get('realmId') || 'Not found';
+    </script>
+</body>
+</html>
